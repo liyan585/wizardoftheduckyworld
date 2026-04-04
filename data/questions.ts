@@ -16,7 +16,7 @@ export const questions: Question[] = [
     text: "A cloaked figure offers you unlimited free cloud storage  forever, no strings, no cost. Your gut whispers...",
     bg: "/q1withoutoptions.png",
     answers: [
-      { label: "Free? Yeah, what's the catch.", weights: { INTJ: 2, ISTJ: 1 } },
+      { label: "Free? Yeah, what's the catch.", weights: { INTJ: 2, ENTP: 1 } },
       { label: "Free is free. Future me can deal.", weights: { ESFP: 2, ENFP: 1 } },
       { label: "If it's free, I'm the product. Seen this before.", weights: { INTP: 2, INFJ: 1 } },
       { label: "Feels off? I'm gone.", weights: { ISTP: 2, ISFJ: 1 } },
@@ -51,7 +51,7 @@ export const questions: Question[] = [
     answers: [
       { label: "Bare minimum. No encryption, no install.", weights: { ISTJ: 2, ESTJ: 1 } },
       { label: "I look for it. Rare, but I notice.", weights: { INFJ: 2, ENFJ: 1 } },
-      { label: "There's a lock icon. Good enough.", weights: { ESFP: 2, ENFP: 1 } },
+      { label: "There's a lock icon. Good enough.", weights: { ESFP: 2, ESTP: 1 } },
       { label: "That's step one. The real stuff is deeper.", weights: { INTJ: 2, ISTP: 1 } },
     ],
   },
@@ -60,7 +60,7 @@ export const questions: Question[] = [
     text: "A goblin, small, greedy, surprisingly fast snatches your phone and vanishes into the fog. Your very first thought is...",
     bg: "/q5withoutoptions.png",
     answers: [
-      { label: "Already handled. I was ready for this goblin.", weights: { ESTJ: 2, ISTJ: 1 } },
+      { label: "Already handled. I was ready for this goblin.", weights: { ESTJ: 2, ESTP: 1 } },
       { label: "My entire life was on that phone.", weights: { INFP: 2, ISFP: 1 } },
       { label: "Data's gone. The goblin has it.", weights: { ENFJ: 2, ESFJ: 1 } },
       { label: "2FA is on. I think?", weights: { ESTP: 2, ENTP: 1 } },
@@ -94,7 +94,7 @@ export const questions: Question[] = [
     bg: "/q8withoutoptions.png",
     answers: [
       { label: "20+ chars. Unique. Managed. Don't @ me.", weights: { ISTP: 2, ISTJ: 1 } },
-      { label: "Same password. Slight remix. I know.", weights: { ESFP: 2, ENFP: 1 } },
+      { label: "Same password. Slight remix. I know.", weights: { ESFP: 2, ENFJ: 1 } },
       { label: "Written down. Offline. Untouchable.", weights: { ISFJ: 2, INFJ: 1 } },
       { label: "Random + manager. No one understands it.", weights: { ESTP: 2, ESFJ: 1 } },
     ],

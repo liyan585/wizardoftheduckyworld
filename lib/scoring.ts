@@ -24,17 +24,15 @@ export const applyAnswer = (scores: Scores, answerWeights: Record<string, number
 };
 
 export const findResult = (scores: Scores): ResultType => {
-  const winner = Object.entries(scores).reduce(
-    (acc, [key, value]) => {
-      if (value > acc.score) {
-        return { type: key, score: value };
-      }
-      return acc;
-    },
-    { type: "intj", score: Number.NEGATIVE_INFINITY }
-  );
+  const maxScore = Math.max(...Object.values(scores));
+  const tied = Object.entries(scores)
+    .filter(([, value]) => value === maxScore)
+    .map(([key]) => key);
 
-  const result = results.find((r) => r.key === winner.type);
+  // Randomly pick among tied types so the same 4-5 don't always win
+  const winnerKey = tied[Math.floor(Math.random() * tied.length)];
+
+  const result = results.find((r) => r.key === winnerKey);
   if (!result) {
     return results[0];
   }
