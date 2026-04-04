@@ -68,7 +68,7 @@ export default function Home() {
   // Phase 1: hmm.mp3 plays → loading screen
   useEffect(() => {
     if (endPhase !== "hmm") return;
-    const hmm = new Audio("/wizardoftheducky/hmm.mp3");
+    const hmm = new Audio("/hmm.mp3");
     hmm.play().catch(() => {});
     hmm.onended = () => setEndPhase("loading");
     return () => { hmm.pause(); };
@@ -85,7 +85,7 @@ export default function Home() {
   useEffect(() => {
     if (endPhase !== "endScene" || !resultKeyRef.current) return;
     const resultType = resultKeyRef.current;
-    const i1 = new Audio("/wizardoftheducky/i1.mp3");
+    const i1 = new Audio("/i1.mp3");
     const timer = setTimeout(() => {
       i1.play().catch(() => {});
     }, 300);
@@ -202,7 +202,7 @@ export default function Home() {
           className="relative h-screen w-full"
         >
           <Image
-            src="/wizardoftheducky/i.png"
+            src="/i.png"
             alt="End scene"
             fill
             className="object-contain"

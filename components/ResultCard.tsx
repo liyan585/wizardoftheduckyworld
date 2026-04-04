@@ -40,7 +40,7 @@ export default function ResultCard({ result }: ResultCardProps) {
   useEffect(() => {
     if (phase !== "result") return;
     const timer = setTimeout(() => {
-      const i2 = new Audio("/wizardoftheducky/i2.mp3");
+      const i2 = new Audio("/i2.mp3");
       i2.play().catch(() => {});
       i2.onended = () => setPhase("j");
     }, 5000);
@@ -50,7 +50,7 @@ export default function ResultCard({ result }: ResultCardProps) {
   // j.png for 2 seconds then cross-dissolve to k.png
   useEffect(() => {
     if (phase !== "j") return;
-    const sfxTimer = setTimeout(() => { new Audio("/wizardoftheducky/magisfx.mp3").play().catch(() => {}); }, 500);
+    const sfxTimer = setTimeout(() => { new Audio("/magisfx.mp3").play().catch(() => {}); }, 500);
     const timer = setTimeout(() => setPhase("k"), 2000);
     return () => { clearTimeout(sfxTimer); clearTimeout(timer); };
   }, [phase]);
@@ -77,7 +77,7 @@ export default function ResultCard({ result }: ResultCardProps) {
             className="absolute inset-0 flex items-center justify-center"
           >
             <Image
-              src="/wizardoftheducky/result_bg.png"
+              src="/result_bg.png"
               alt="background"
               fill
               className="object-cover"
@@ -158,7 +158,7 @@ export default function ResultCard({ result }: ResultCardProps) {
             transition={{ duration: 1.4, ease: "easeInOut" }}
             className="absolute inset-0"
           >
-            <Image src="/wizardoftheducky/j.png" alt="j" fill className="object-contain" priority />
+            <Image src="/j.png" alt="j" fill className="object-contain" priority />
           </motion.div>
         )}
       </AnimatePresence>
@@ -203,7 +203,7 @@ export default function ResultCard({ result }: ResultCardProps) {
               transition={{ duration: 1.2 }}
               className="relative h-full w-full"
             >
-              <Image src="/wizardoftheducky/k.png" alt="k" fill className="object-contain" priority />
+              <Image src="/k.png" alt="k" fill className="object-contain" priority />
             </motion.div>
           </motion.div>
         )}

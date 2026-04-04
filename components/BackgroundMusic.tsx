@@ -29,7 +29,7 @@ export default function BackgroundMusic() {
   };
 
   useEffect(() => {
-    const audio = new Audio("/wizardoftheducky/music.mp3");
+    const audio = new Audio("/music.mp3");
     audio.loop = true;
     audio.volume = 0;
     audioRef.current = audio;
