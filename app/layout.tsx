@@ -21,7 +21,7 @@ const irishGrover = Irish_Grover({
 });
 
 export const metadata: Metadata = {
-  title: "Which Ducky Are You?",
+  title: "The Ducky Oracle",
   description: "A wizardly audit of your digital habits. Reveal your ducky archetype, share and download your fate with your friends",
 };
 
