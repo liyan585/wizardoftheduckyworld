@@ -1,8 +1,23 @@
 let ctx: AudioContext | null = null;
+let audioUnlocked = false;
 
 function getCtx(): AudioContext {
   if (!ctx) ctx = new AudioContext();
   return ctx;
+}
+
+/** Call from any user-gesture handler to unlock audio playback on mobile */
+export function unlockAudio() {
+  if (audioUnlocked) return;
+  audioUnlocked = true;
+
+  // Resume AudioContext if suspended
+  const ac = getCtx();
+  if (ac.state === "suspended") ac.resume().catch(() => {});
+
+  // Play a silent HTML audio element to unlock HTMLAudioElement.play()
+  const silent = new Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=");
+  silent.play().catch(() => {});
 }
 
 export function playClick() {

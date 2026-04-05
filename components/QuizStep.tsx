@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Question } from "../data/questions";
-import { playClick } from "../lib/clickSound";
+import { playClick, unlockAudio } from "../lib/clickSound";
 
 type QuizStepProps = {
   question: Question;
@@ -138,7 +138,7 @@ export default function QuizStep({ question, onAnswer }: QuizStepProps) {
         {question.answers.map((answer, idx) => (
           <motion.button
             key={idx}
-            onClick={() => { playClick(); onAnswer(idx); }}
+            onClick={() => { unlockAudio(); playClick(); onAnswer(idx); }}
             whileHover={{ scale: 1.03, boxShadow: "0 0 0.6vw #A88458" }}
             whileTap={{ scale: 0.96, boxShadow: "0 0 0.3vw #462901", filter: "brightness(0.88)" }}
             transition={{ type: "spring", stiffness: 400, damping: 20 }}

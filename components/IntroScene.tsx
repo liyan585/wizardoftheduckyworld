@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Scene } from "../data/scenes";
-import { playClick } from "../lib/clickSound";
+import { playClick, unlockAudio } from "../lib/clickSound";
 
 type IntroSceneProps = {
   scene: Scene;
@@ -62,7 +62,7 @@ export default function IntroScene({ scene, onNext }: IntroSceneProps) {
       animate={{ opacity: 1 }}
       transition={{ duration: scene.instant ? 0 : 0.4 }}
       className="absolute inset-0 cursor-pointer"
-      onClick={() => { playClick(); onNext(); }}
+      onClick={() => { unlockAudio(); playClick(); onNext(); }}
     >
       <Image
         src={scene.image!}

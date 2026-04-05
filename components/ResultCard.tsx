@@ -37,8 +37,11 @@ export default function ResultCard({ result }: ResultCardProps) {
     if (phase !== "result") return;
     const timer = setTimeout(() => {
       const i2 = new Audio("/i2.mp3");
-      i2.play().catch(() => {});
       i2.onended = () => setPhase("j");
+      i2.play().catch(() => {
+        // Audio blocked on mobile — skip ahead after a fallback delay
+        setPhase("j");
+      });
     }, 5000);
     return () => clearTimeout(timer);
   }, [phase]);
@@ -213,7 +216,8 @@ export default function ResultCard({ result }: ResultCardProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5, duration: 0.5 }}
-            className="absolute inset-0 z-20 flex items-center justify-center px-8"
+            className="absolute inset-0 z-20 flex items-center px-8"
+            style={{ justifyContent: "flex-start", paddingLeft: "13%" }}
           >
             <div className="flex w-full max-w-5xl items-center gap-8">
               {/* Left half: result card */}
