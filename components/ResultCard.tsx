@@ -37,8 +37,11 @@ export default function ResultCard({ result }: ResultCardProps) {
     if (phase !== "result") return;
     const timer = setTimeout(() => {
       const i2 = new Audio("/i2.mp3");
-      i2.play().catch(() => {});
       i2.onended = () => setPhase("j");
+      i2.play().catch(() => {
+        // Audio blocked on mobile — skip ahead after a fallback delay
+        setPhase("j");
+      });
     }, 5000);
     return () => clearTimeout(timer);
   }, [phase]);
