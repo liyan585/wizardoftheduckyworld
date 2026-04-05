@@ -45,11 +45,11 @@ body {
 }
 
 .scroll-truth-fact-text {
-  font-size: clamp(9px, 0.8vw, 14px);
+  font-size: clamp(12px, 1.1vw, 18px);
 }
 
 .scroll-truth-fact-title {
-  font-size: clamp(10px, 0.9vw, 16px);
+  font-size: clamp(14px, 1.2vw, 20px);
 }
 
 /* Mobile: landscape container is small, so bump up sizes */
@@ -67,11 +67,11 @@ body {
   }
 
   .scroll-truth-fact-text {
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .scroll-truth-fact-title {
-    font-size: 13px;
+    font-size: 16px;
   }
 }
 
@@ -90,11 +90,11 @@ body {
   }
 
   .scroll-truth-fact-text {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   .scroll-truth-fact-title {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
