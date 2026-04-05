@@ -21,7 +21,7 @@ export default function ResultCard({ result }: ResultCardProps) {
 
   const onShare = async () => {
     playClick();
-    const shareText = `I got '${result.title}'. Check out yours, visiting the world of the Ducky Wizard.\n\nwww.wizardoftheduckyworld.com\n\nPowered by Ente – https://ente.com/?utm_source=wizardoftheduckyworld`;
+    const shareText = `I got '${result.title}'. Check out yours, visiting the world of the Ducky Wizard.\n\nwww.wizardoftheduckyworld.com\n\nPowered by Ente – ente.com/?utm_source=wizardoftheduckyworld`;
 
     if (navigator.share) {
       await navigator.share({ text: shareText }).catch(() => {});
