@@ -31,3 +31,70 @@ body {
   box-sizing: border-box;
 }
 
+/* Scroll of Truth - i icon & fact box responsive styles */
+.scroll-truth-icon {
+  width: clamp(28px, 2.5vw, 44px);
+  height: clamp(28px, 2.5vw, 44px);
+  font-size: clamp(14px, 1.3vw, 22px);
+}
+
+.scroll-truth-fact {
+  max-width: 40%;
+  border-radius: 0.6vw;
+  padding: clamp(8px, 1vw, 16px) clamp(12px, 1.2vw, 20px);
+}
+
+.scroll-truth-fact-text {
+  font-size: clamp(9px, 0.8vw, 14px);
+}
+
+.scroll-truth-fact-title {
+  font-size: clamp(10px, 0.9vw, 16px);
+}
+
+/* Mobile: landscape container is small, so bump up sizes */
+@media (max-width: 768px) {
+  .scroll-truth-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .scroll-truth-fact {
+    max-width: 70%;
+    border-radius: 6px;
+    padding: 10px 14px;
+  }
+
+  .scroll-truth-fact-text {
+    font-size: 12px;
+  }
+
+  .scroll-truth-fact-title {
+    font-size: 13px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .scroll-truth-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+
+  .scroll-truth-fact {
+    max-width: 80%;
+    border-radius: 5px;
+    padding: 8px 12px;
+  }
+
+  .scroll-truth-fact-text {
+    font-size: 11px;
+  }
+
+  .scroll-truth-fact-title {
+    font-size: 12px;
+  }
+}
+

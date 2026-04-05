@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Question } from "../data/questions";
 import { playClick } from "../lib/clickSound";
@@ -34,6 +35,8 @@ const FOOTER_WIDTH = "18.57%";  // 356.56 / 1920
 const FOOTER_TOP   = "85.45%";  // (81 + 841.85) / 1080
 
 export default function QuizStep({ question, onAnswer }: QuizStepProps) {
+  const [showFact, setShowFact] = useState(false);
+
   return (
     <motion.div
       key={question.id}
@@ -59,6 +62,78 @@ export default function QuizStep({ question, onAnswer }: QuizStepProps) {
           className="object-fill"
           priority
         />
+
+        {/* Scroll of Truth - i icon */}
+        <motion.button
+          onClick={() => { playClick(); setShowFact(!showFact); }}
+          animate={{
+            boxShadow: [
+              "0 0 4px #A88458, 0 0 8px rgba(168,132,88,0.4)",
+              "0 0 10px #FFEBD4, 0 0 20px rgba(168,132,88,0.6)",
+              "0 0 4px #A88458, 0 0 8px rgba(168,132,88,0.4)",
+            ],
+          }}
+          transition={{
+            boxShadow: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+          }}
+          whileHover={{ scale: 1.15, boxShadow: "0 0 16px #FFEBD4, 0 0 30px rgba(168,132,88,0.8)" }}
+          whileTap={{ scale: 0.9 }}
+          className="scroll-truth-icon"
+          style={{
+            position: "absolute",
+            top: "2%",
+            left: "2%",
+            borderRadius: "50%",
+            background: "linear-gradient(273.35deg, #A88458 -13.8%, #FFEBD4 54.84%, #E0C8AA 92.96%)",
+            border: "max(1px, 0.1vw) solid #462901",
+            fontFamily: "var(--font-irish-grover)",
+            color: "#462901",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 30,
+          }}
+        >
+          i
+        </motion.button>
+
+        {/* Fact popup */}
+        <AnimatePresence>
+          {showFact && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setShowFact(false)}
+              className="scroll-truth-fact"
+              style={{
+                position: "absolute",
+                top: "7%",
+                left: "2%",
+                background: "rgba(0, 0, 0, 0.85)",
+                border: "max(1px, 0.1vw) solid #A88458",
+                zIndex: 30,
+                cursor: "pointer",
+              }}
+            >
+              <p
+                className="scroll-truth-fact-text"
+                style={{
+                  fontFamily: "var(--font-irish-grover)",
+                  color: "#FFEBD4",
+                  lineHeight: "1.5",
+                  margin: 0,
+                }}
+              >
+                <span className="scroll-truth-fact-title" style={{ color: "#A88458" }}>Scroll of Truth</span>
+                <br />
+                {question.fact}
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {question.answers.map((answer, idx) => (
           <motion.button
