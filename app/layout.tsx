@@ -40,9 +40,9 @@ export default function RootLayout({
         <RotateOverlay />
         {children}
         <a
-          href="https://ente.com/?utm_source=wizardoftheduckyworld"
+          href="https://ente.com"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
           className="fixed bottom-2 right-2 z-40 tracking-wide no-underline opacity-50 hover:opacity-90 transition-opacity px-2 py-1"
           style={{ fontFamily: "var(--font-irish-grover)", color: "#FFEBD4", textShadow: "0 0 4px #462901", fontSize: "clamp(10px, 1vw, 18px)" }}
         >

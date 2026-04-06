@@ -21,7 +21,7 @@ export default function ResultCard({ result }: ResultCardProps) {
 
   const onShare = async () => {
     playClick();
-    const shareText = `I got '${result.title}'. Check out yours, visiting the world of the Ducky Wizard.\n\nwww.wizardoftheduckyworld.com\n\nPowered by Ente – https://ente.com/?utm_source=wizardoftheduckyworld`;
+    const shareText = `I got '${result.title}'. Check out yours, visiting the world of the Ducky Wizard.\n\nwww.wizardoftheduckyworld.com\n\nPowered by Ente – ente.com`;
 
     if (navigator.share) {
       await navigator.share({ text: shareText }).catch(() => {});
@@ -98,9 +98,9 @@ export default function ResultCard({ result }: ResultCardProps) {
                 />
                 {/* Clickable ente.com overlay on the card */}
                 <a
-                  href="https://ente.com/?utm_source=wizardoftheduckyworld"
+                  href="https://ente.com"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="absolute cursor-pointer z-10"
                   style={{ bottom: "0%", left: "10%", right: "10%", height: "10%" }}
                 />
@@ -235,9 +235,9 @@ export default function ResultCard({ result }: ResultCardProps) {
                   className="object-contain"
                 />
                 <a
-                  href="https://ente.com/?utm_source=wizardoftheduckyworld"
+                  href="https://ente.com"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="absolute cursor-pointer z-10"
                   style={{ bottom: "0%", left: "10%", right: "10%", height: "10%" }}
                 />
@@ -295,9 +295,9 @@ export default function ResultCard({ result }: ResultCardProps) {
                   Share
                 </motion.button>
                 <motion.a
-                  href="https://ente.com/?utm_source=wizardoftheduckyworld"
+                  href="https://ente.com"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   onClick={() => playClick()}
                   whileHover={{ scale: 1.08, boxShadow: "0 0 16px #A88458" }}
                   whileTap={{ scale: 0.92, filter: "brightness(0.8)" }}
